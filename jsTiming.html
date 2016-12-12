@@ -1,0 +1,122 @@
+<DOCTYPE! html>
+<head>
+  <title>Javascript Timing</title>
+</head>
+<body>
+  <div class="row">
+    <div class="col-4">
+      <div id="nav">
+        <ul>
+          <li><a class="active" href="#">Home</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<div class="row">
+  <div class="col-2">
+    <button onclick="clearTimeout(sTime)">Clear Timeout</button>
+  </div>
+  <div class="col-2">
+    <button onclick="clearInterval(sInte)">Clear Interval</button>
+  </div>
+</div>
+
+  <style>
+  * {
+    box-sizing: border-box;
+    font-family: tahoma;
+  }
+  .row::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+  [class*="col-"] {
+    padding: 15px;
+    float: left;
+  }
+  .col-4{width: 100%;}
+  .col-3{width: 75%;}
+  .col-2{width: 50%;}
+  .col-1{width: 25%;}
+
+  @media only screen and (max-width: 768px) {
+    [class*="col-"] {
+      width: 100%;
+    }
+
+  }
+
+  #nav ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+    background-color: #4e2b3a;
+    border-radius: 7px;
+  }
+  #nav li {
+    float: left;
+  }
+  #nav li a {
+    text-decoration: none;
+    padding: 14px 16px;
+    color: #d68686;
+    display: block;
+    font-size: 130%;
+    font-family: tahoma;
+  }
+  #nav li a:hover:not(.active) {
+    color: #FFF;
+  }
+  .active {
+    background-color: #58001d;
+  }
+  </style>
+
+  <script>
+  //Javascript timing uses the methods setInterval() and setTimeout()
+
+  /*
+    Syntax and Meaning
+
+    setTimeout(function, milliseconds)
+      -runs the function after specified time
+    setInterval(function, milliseconds)
+      -runs the function repeatedly
+
+  */
+
+//setTimeout()
+  function text() {
+    alert("Hello World");
+  }
+  var sTime = setTimeout(text, 3000); //will run the function after 3 seconds (will not run again)
+//clearTimeout(); -stops the execution of the setTimeout method. Typically used as a button's onclick attribute
+  /*Syntax
+    clearTimeout(var)
+      -must set the setTimeout() method as a variable
+    See in the html portion of the file
+  */
+
+
+//setInterval()
+  function n() {
+    n = prompt("What is your name?");
+    alert("Nice to meet you " + n);
+  }
+  var sInte = setInterval(n, 5000); //this will run the function every 5 seconds
+  //you do not need parenthesis because that will call the function without waiting the 5 seconds
+//clearInterval(); - stops the execution of the setInterval method. Typically used as a button's onclick attribite
+  /*Syntax
+    clearInterval(var)
+      -must set the setInterval() method as a variable
+    See in the html portion of the file
+  */
+  </script>
+</body>
+</html>
